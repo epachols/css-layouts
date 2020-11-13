@@ -1,0 +1,29 @@
+section {
+  height: 240px;
+  margin: 10px auto;
+}
+.blue {
+  background-color: aquamarine;
+}
+.tan {
+  background-color: tan;
+}
+.green {
+  background-color: lightgreen;
+}
+
+.example1 .parent {
+  display: grid;
+  place-items: center;
+}
+
+.example2 .parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.example2 .box {
+  flex: 1 1 150px; /*  Stretching: */
+  flex: 0 1 150px; /*  No stretching: */
+  margin: 5px;
+}
