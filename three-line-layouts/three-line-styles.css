@@ -1,0 +1,136 @@
+section {
+  margin: 10px 0 0 0;
+}
+.basic-grid {
+  /* this configuration will create all-responsive implicit grid! */
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  /* see auto-fit vs auto-fill, if you want extra spaces */
+}
+
+/*----==== section 2 ====---- */
+.photo-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-auto-rows: 260px;
+}
+
+@media screen and (min-width: 650px) {
+  .card-tall {
+    /* the grid-row property allows a start / end value pass. */
+    grid-row: span 2 / auto;
+  }
+
+  .card-wide {
+    /* same goes for grid-column */
+    grid-column: span 2 / auto;
+  }
+}
+
+/*----==== section 3 ====---- */
+.animated-grid {
+  height: 700px;
+  display: grid;
+  gap: 1rem;
+  /* explicit grid using grid-template-areas */
+  grid-template-areas:
+    "a b  c  d"
+    "l 🦁 🦁 e"
+    "k 🦁 🦁 f"
+    "j i  h  g";
+
+  /* setting the row height with repeat */
+  grid-template-rows: repeat(4, 25%);
+  grid-template-columns: 250px auto auto 250px;
+
+  /* now for the animation */
+  --stagger-delay: 100ms;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    scale: 0.3;
+    filter: hue-rotate(-60deg);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    filter: hue-rotate(0deg);
+  }
+}
+
+.animated-grid .card {
+  /* this is the actual animation code, using the cardEntrance keyframe designation, and notably, the animation-fill-mode of backwards to get the correct direction */
+  animation: cardEntrance 700ms ease-out;
+  animation-fill-mode: backwards;
+}
+
+.animated-grid .card:hover {
+  transform: scale(1.01);
+}
+.animated-grid .card:nth-child(1) {
+  grid-area: a;
+  animation-delay: calc(1 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(2) {
+  grid-area: b;
+  animation-delay: calc(2 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(3) {
+  grid-area: c;
+  animation-delay: calc(3 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(4) {
+  grid-area: d;
+  animation-delay: calc(4 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(5) {
+  grid-area: e;
+  animation-delay: calc(5 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(6) {
+  grid-area: f;
+  animation-delay: calc(6 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(7) {
+  grid-area: g;
+  animation-delay: calc(7 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(8) {
+  grid-area: h;
+  animation-delay: calc(8 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(9) {
+  grid-area: i;
+  animation-delay: calc(9 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(10) {
+  grid-area: j;
+  animation-delay: calc(10 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(11) {
+  grid-area: k;
+  animation-delay: calc(11 * var(--stagger-delay));
+}
+.animated-grid .card:nth-child(12) {
+  grid-area: l;
+  animation-delay: calc(12 * var(--stagger-delay));
+}
+.animated-grid .card:last-child {
+  grid-area: 🦁;
+  background-image: url("https://pixy.org/src/56/thumbs350/568971.jpg");
+  animation-delay: calc(14 * var(--stagger-delay));
+  display: inline-flex;
+  justify-content: end;
+}
+
+.animated-grid .card .title {
+  color: black;
+  background-color: darkorange;
+  padding: 10px;
+  border-radius: 30%;
+}
