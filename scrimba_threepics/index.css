@@ -1,0 +1,44 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+}
+
+/* Write your code here 👇 */
+
+.panels {
+    min-width: 80%;
+    height: 80%;
+    display: flex;
+    transition: width ease-in-out 0.4s;
+}
+
+.panel {
+    height: 100%;
+    width: 33%;
+    background-position: bottom;
+    background-size: cover;
+    transition: width ease-in-out 0.6s;
+}
+
+/* .panel--expanded {
+
+} */
+
+.first {
+    background-image: url(https://jenmulligandesign.com/wp-content/uploads/2017/04/pexels-beach-tropical-scene-free-stock-photo.jpg)
+}
+.second {
+    background-image: url(https://assets.picspree.com/variants/SMT87gCeE8afukbywRcnjcjc/624f0dc1dff9bdccab032f93c33e79de78481770e79e21d3b0469daf51f02797);
+}
+.third {
+    background-image: url(https://images.pexels.com/photos/68147/waterfall-thac-dray-nur-buon-me-thuot-daklak-68147.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+
+.expanded {
+    width: 85%;
+}
